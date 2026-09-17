@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Sản phẩm - FUJI Matcha Shop</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1rem;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .close-btn:hover {
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(91, 140, 61, 0.1);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    .admin-page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .product-row {
+      background: white;
+      padding: 1rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: auto 1fr repeat(3, auto);
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .product-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 4px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .product-info h3 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+    }
+
+    .product-info p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    .product-price {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .product-stock {
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #c82333;
+    }
+
+    @media (max-width: 768px) {
+      .product-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="container nav-wrapper">
+        <a href="../index.html" class="logo">FUJI <span style="font-weight: 400; color: var(--text-light);">Matcha</span></a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link">Cửa hàng</a></li>
+            <li><a href="../order-history.html" class="nav-link">Lịch sử mua hàng</a></li>
+            <li><a href="index.html" class="nav-link active">Admin</a></li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <a href="../cart.html" class="cart-icon-wrapper"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></a>
+          <a href="../login.html" class="btn btn-secondary btn-sm">Đăng nhập</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="admin-container">
+        <aside class="admin-sidebar">
+          <a href="index.html" class="admin-sidebar-link">📊 Dashboard</a>
+          <a href="orders.html" class="admin-sidebar-link">📦 Đơn hàng</a>
+          <a href="products.html" class="admin-sidebar-link active">🛍️ Sản phẩm</a>
+          <a href="categories.html" class="admin-sidebar-link">📑 Danh mục</a>
+          <a href="accounts.html" class="admin-sidebar-link">👥 Tài khoản</a>
+        </aside>
+
+        <section class="admin-content">
+          <div class="admin-page-header">
+            <div>
+              <h1>Quản lý Sản phẩm</h1>
+              <p style="color: var(--text-light); font-size: 0.9rem;">Danh sách sản phẩm hiện có và trạng thái kho.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="add-product-btn">+ Thêm sản phẩm</button>
+          </div>
+
+          <div id="products-container">
+            <!-- Products will be rendered here -->
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Product Modal -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Thêm sản phẩm mới</h2>
+        <button class="close-btn" id="close-modal-btn">&times;</button>
+      </div>
+
+      <form id="product-form">
+        <div class="form-group">
+          <label for="product-name">Tên sản phẩm</label>
+          <input type="text" id="product-name" name="name" required placeholder="Nhập tên sản phẩm">
+        </div>
+
+        <div class="form-group">
+          <label for="product-category">Danh mục</label>
+          <select id="product-category" name="categoryId" required>
+            <option value="">Chọn danh mục</option>
+            <option value="1">Thức Uống</option>
+            <option value="2">Tráng Miệng</option>
+            <option value="3">Bánh Ngọt</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="product-price">Giá (đ)</label>
+          <input type="number" id="product-price" name="price" required min="0" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label for="product-stock">Số lượng kho</label>
+          <input type="number" id="product-stock" name="stock" required min="0" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label for="product-rating">Đánh giá</label>
+          <input type="number" id="product-rating" name="rating" required min="0" max="5" step="0.1" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label for="product-image">Hình ảnh (URL)</label>
+          <input type="text" id="product-image" name="image" placeholder="images/...">
+        </div>
+
+        <div class="form-group">
+          <label for="product-description">Mô tả</label>
+          <textarea id="product-description" name="description" placeholder="Nhập mô tả sản phẩm"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-btn">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu sản phẩm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about"><h3>FUJI Matcha Shop</h3><p>Nơi cung cấp các sản phẩm trà matcha Nhật Bản nguyên chất cao cấp.</p></div>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+  <script>
+    let currentEditingProductId = null;
+
+    const modal = document.getElementById('product-modal');
+    const productForm = document.getElementById('product-form');
+    const addProductBtn = document.getElementById('add-product-btn');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const modalTitle = document.getElementById('modal-title');
+
+    // Check if user is admin
+    const setupPage = async () => {
+      const currentUser = getCurrentUser();
+      if (!currentUser || currentUser.role !== 'admin') {
+        window.location.href = '../login.html';
+        return;
+      }
+      renderAuthState();
+    };
+
+    // Setup modal and form handlers (renderAdminProductsPage is called from app.js)
+
+    // Open add product modal
+    addProductBtn.addEventListener('click', () => {
+      currentEditingProductId = null;
+      modalTitle.textContent = 'Thêm sản phẩm mới';
+      productForm.reset();
+      modal.classList.add('active');
+    });
+
+    // Open edit modal
+    const openEditModal = (product) => {
+      currentEditingProductId = product.id;
+      modalTitle.textContent = 'Chỉnh sửa sản phẩm';
+      
+      document.getElementById('product-name').value = product.name;
+      document.getElementById('product-category').value = product.categoryId;
+      document.getElementById('product-price').value = product.price;
+      document.getElementById('product-stock').value = product.stock;
+      document.getElementById('product-rating').value = product.rating;
+      document.getElementById('product-image').value = product.image;
+      document.getElementById('product-description').value = product.description;
+      
+      modal.classList.add('active');
+    };
+
+    // Export to window for app.js
+    window.openEditProductModal = openEditModal;
+
+    // Close modal
+    const closeModal = () => {
+      modal.classList.remove('active');
+      currentEditingProductId = null;
+      productForm.reset();
+    };
+
+    closeModalBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Handle form submission
+    productForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const productData = {
+        name: document.getElementById('product-name').value,
+        categoryId: parseInt(document.getElementById('product-category').value),
+        price: parseInt(document.getElementById('product-price').value),
+        stock: parseInt(document.getElementById('product-stock').value),
+        rating: parseFloat(document.getElementById('product-rating').value),
+        image: document.getElementById('product-image').value,
+        description: document.getElementById('product-description').value,
+        reviews: 0
+      };
+
+      let result;
+      if (currentEditingProductId) {
+        result = await updateProduct(currentEditingProductId, productData);
+        if (result) {
+          alert('Cập nhật sản phẩm thành công!');
+        } else {
+          alert('Lỗi khi cập nhật sản phẩm');
+        }
+      } else {
+        result = await createProduct(productData);
+        if (result) {
+          alert('Thêm sản phẩm thành công!');
+        } else {
+          alert('Lỗi khi thêm sản phẩm');
+        }
+      }
+
+      if (result) {
+        closeModal();
+        renderAdminProductsPage();
+      }
+    });
+
+    // Initialize page
+    setupPage();
+  </script>
+</body>
+</html>

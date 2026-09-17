@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh Toán - FUJI Matcha Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="container nav-wrapper">
+          <a href="index.html" class="logo">FUJI <span style="font-weight: 400; color: var(--text-light);">Matcha</span></a>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html" class="nav-link">Cửa hàng</a></li>
+              <li><a href="order-history.html" class="nav-link">Lịch sử mua hàng</a></li>
+              <li><a href="admin/index.html" class="nav-link">Admin</a></li>
+            </ul>
+          </nav>
+          <div class="nav-actions">
+            <a href="cart.html" class="cart-icon-wrapper"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg><span class="cart-badge">1</span></a>
+            <div style="display: flex; gap: 0.5rem;"><a href="login.html" class="btn btn-secondary btn-sm">Đăng nhập</a><a href="register.html" class="btn btn-primary btn-sm">Đăng ký</a></div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="container" style="margin: 2rem auto;">
+          <h1 class="mb-4" style="font-size: 2rem;">Thanh Toán Đơn Hàng</h1>
+          <div class="checkout-layout">
+            <div class="checkout-card">
+              <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.5rem;">📋</span><span>Thông tin giao hàng</span></h2>
+              <form id="checkout-form">
+                <div class="form-group"><label class="form-label" for="name">Họ và tên người nhận *</label><input type="text" id="name" class="form-control" placeholder="Ví dụ: Nguyễn Văn A" required /></div>
+                <div class="form-group"><label class="form-label" for="phone">Số điện thoại liên hệ *</label><input type="tel" id="phone" class="form-control" placeholder="Ví dụ: 0912345678" required /></div>
+                <div class="form-group"><label class="form-label" for="address">Địa chỉ nhận hàng *</label><textarea id="address" class="form-control" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố" rows="3" required></textarea></div>
+                <div class="form-group" style="margin-top: 1.5rem;"><label class="form-label">Phương thức thanh toán *</label>
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; background-color: var(--primary-light); border-color: var(--primary);">
+                      <input type="radio" name="payment" value="COD" checked style="accent-color: var(--primary);" />
+                      <div><strong>Thanh toán khi nhận hàng (COD)</strong><span style="display: block; font-size: 0.8rem; color: var(--text-light);">Quý khách thanh toán bằng tiền mặt cho shipper khi nhận được matcha.</span></div>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer;">
+                      <input type="radio" name="payment" value="BANK" style="accent-color: var(--primary);" />
+                      <div><strong>Chuyển khoản ngân hàng (Chờ xác nhận)</strong><span style="display: block; font-size: 0.8rem; color: var(--text-light);">Chuyển khoản tới Vietcombank: 1023456789 (FUJI MATCH SHOP).</span></div>
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-4" style="padding: 0.9rem; display: inline-flex; justify-content: center; width: 100%;">Đặt hàng ngay</button>
+              </form>
+            </div>
+            <div class="cart-summary-panel">
+              <h2 style="font-size: 1.25rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Tóm tắt sản phẩm</h2>
+              <div id="checkout-items" style="max-height: 250px; overflow-y: auto; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;"><div style="display: flex; align-items: center; gap: 0.5rem;"><span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: var(--primary-light); color: var(--primary); text-align: center; font-size: 0.8rem; font-weight: 600;">1</span><span style="font-weight: 500; color: var(--bg-dark);">Cold Whisk Matcha</span></div><span style="font-weight: 600; color: var(--text-light);">68.000 đ</span></div>
+              </div>
+              <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                <div class="summary-row"><span>Tạm tính</span><span>68.000 đ</span></div>
+                <div class="summary-row"><span>Giao hàng</span><span style="color: var(--success);">Freeship</span></div>
+                <div class="summary-row total" style="font-size: 1.2rem; margin-top: 0.5rem;"><span>Tổng cộng</span><span>68.000 đ</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script src="app.js" defer></script>
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div class="footer-about"><h3>FUJI Matcha Shop</h3><p style="color: #a4c09b; font-size: 0.95rem; max-width: 320px;">Nơi cung cấp các sản phẩm trà matcha Nhật Bản nguyên chất cao cấp, đồ uống tươi ngon và các món tráng miệng ngọt ngào từ matcha tự nhiên.</p><div class="mt-3" style="font-size: 0.9rem;"><p>📍 Địa chỉ: 123 Đường Matcha, Quận Trà Xanh, Hà Nội</p><p>📞 Hotline: 1900 8888</p><p>✉️ Email: contact@fujimatcha.vn</p></div></div>
+          <div class="footer-links"><h4>Về FUJI Shop</h4><ul><li><a href="index.html">Cửa hàng</a></li><li><a href="order-history.html">Lịch sử mua hàng</a></li><li><a href="cart.html">Giỏ hàng</a></li></ul></div>
+          <div class="footer-links"><h4>Sản Phẩm</h4><ul><li><a href="index.html">Trà Matcha Nguyên Chất</a></li><li><a href="index.html">Matcha Đá Xay</a></li><li><a href="index.html">Bánh Ngọt Matcha</a></li></ul></div>
+          <div class="footer-links"><h4>Giờ hoạt động</h4><p style="font-size: 0.9rem;">Thứ Hai - Chủ Nhật</p><p style="font-size: 0.9rem; color: #fff; font-weight: 600;">08:00 AM - 10:00 PM</p><p style="font-size: 0.9rem; margin-top: 10px;">Rất hân hạnh được phục vụ quý khách!</p></div>
+        </div>
+        <div class="container footer-bottom"><p>&copy; 2026 FUJI Matcha Shop. Thiết kế bởi Antigravity. Website MVP Học Tập.</p></div>
+      </footer>
+    </div>
+  </body>
+</html>

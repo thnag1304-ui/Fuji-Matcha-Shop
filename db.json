@@ -1,0 +1,341 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@phela.vn",
+      "password": "admin123",
+      "name": "Quản trị viên",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "email": "user@phela.vn",
+      "password": "user123",
+      "name": "Khách hàng",
+      "role": "user"
+    },
+    {
+      "name": "Nguyễn Văn A",
+      "email": "a@a.com",
+      "password": "abcdef123456",
+      "role": "user",
+      "id": "ATShATe9gD8"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Thức Uống",
+      "description": "Matcha drinks và đồ uống lạnh"
+    },
+    {
+      "id": "2",
+      "name": "Tráng Miệng",
+      "description": "Đồ ngọt vị matcha và bánh kem"
+    },
+    {
+      "id": "3",
+      "name": "Bánh Ngọt",
+      "description": "Bánh mousse, bông lan và bánh tươi"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Cold Whisk Matcha",
+      "categoryId": 1,
+      "price": 68000,
+      "stock": 50,
+      "rating": 4.8,
+      "reviews": 42,
+      "image": "images/coldwhisk_c07d8c0d5a0c4392923e5db8a44582cc_7e203217fd1c4b8faf9ef7d411a3326f_large.png",
+      "description": "Cold Whisk Matcha mát lạnh, đậm vị tự nhiên."
+    },
+    {
+      "id": "2",
+      "name": "Fog Matcha Latte",
+      "categoryId": 1,
+      "price": 69000,
+      "stock": 60,
+      "rating": 4.9,
+      "reviews": 31,
+      "image": "images/fog_matcha_latte_e41446a847f841919badc807f4c4106b_83ed764223514a9e8c570db5abf31ed8_master.png",
+      "description": "Fog Matcha Latte thơm mịn, béo nhẹ, pha với sữa tươi."
+    },
+    {
+      "id": "3",
+      "name": "Matcha Latte",
+      "categoryId": 1,
+      "price": 67000,
+      "stock": 70,
+      "rating": 4.7,
+      "reviews": 28,
+      "image": "images/matchalatte_bba4231b93f84cc9870c1daf2e1a31e1_88d589c399074f139dc9c72fbcce6273_master.png",
+      "description": "Matcha Latte ấm áp, thơm mịn, nhẹ nhàng."
+    },
+    {
+      "id": "4",
+      "name": "Power Matcha",
+      "categoryId": 1,
+      "price": 65000,
+      "stock": 70,
+      "rating": 4.8,
+      "reviews": 36,
+      "image": "images/power_c44d8587ff1146498e833c7617879496_c3c1873de49d4503b0c53805f963e19e_master.png",
+      "description": "Power Matcha đầy năng lượng, vị đậm và sảng khoái."
+    },
+    {
+      "id": "5",
+      "name": "Salted Cream Matcha",
+      "categoryId": 1,
+      "price": 68000,
+      "stock": 70,
+      "rating": 4.6,
+      "reviews": 26,
+      "image": "images/salted_4d6bc144258e4890885c142898e0736c_e0ee4f72eca14c6093b3ed7b341348b0_master.png",
+      "description": "Matcha pha cùng kem salted caramel, béo ngậy khó quên."
+    },
+    {
+      "id": "6",
+      "name": "Bánh Bông Lan Kem Tươi",
+      "categoryId": 3,
+      "price": 55000,
+      "stock": 50,
+      "rating": 4.9,
+      "reviews": 0,
+      "image": "images/Banh-bong-lan-kem-tuoi-1024x640.png",
+      "description": "Bánh bông lan mềm mịn, kết hợp kem tươi thơm ngon."
+    },
+    {
+      "id": "7",
+      "name": "Bánh Mousse Matcha",
+      "categoryId": 3,
+      "price": 55000,
+      "stock": 50,
+      "rating": 4.8,
+      "reviews": 21,
+      "image": "images/Banh-Mousse-1024x640.png",
+      "description": "Bánh mousse matcha mềm mượt, vị thanh dịu, sang trọng."
+    },
+    {
+      "id": "8",
+      "name": "Tàu Hủ Matcha",
+      "categoryId": 2,
+      "price": 55000,
+      "stock": 80,
+      "rating": 4.7,
+      "reviews": 0,
+      "image": "images/tau_hu_073456509c324de881c8c7b7dc1756c4_9cc23f46054241ecb3a6ed6aa7a27729_master.png",
+      "description": "Tàu hủ matcha mềm mại, vị ngọt nhẹ kết hợp với hương thơm của trà xanh."
+    },
+    {
+      "id": "9",
+      "name": "Sữa Chua Matcha",
+      "categoryId": 2,
+      "price": 40000,
+      "stock": 60,
+      "rating": 4.8,
+      "reviews": 12,
+      "image": "images/1_panna-5804.jpg",
+      "description": "Sữa chua lạnh vị matcha, chua ngọt cân bằng, giàu protein và lợi khuẩn."
+    },
+    {
+      "id": "10",
+      "name": "Tiramisu Matcha",
+      "categoryId": 3,
+      "price": 55000,
+      "stock": 40,
+      "rating": 4.9,
+      "reviews": 0,
+      "image": "images/1_maxresdefault.jpg",
+      "description": "Tiramisu kết hợp với vị matcha thơm ngon, béo ngậy, sang trọng."
+    },
+    {
+      "id": "11",
+      "name": "Cheesecake Matcha",
+      "categoryId": 2,
+      "price": 55000,
+      "stock": 35,
+      "rating": 4.9,
+      "reviews": 0,
+      "image": "images/img_62a061385f69e.png",
+      "description": "Cheesecake béo ngậy với lớp matcha tươi mát, hương vị độc đáo."
+    },
+    {
+      "id": "12",
+      "name": "Kem Matcha Tươi",
+      "categoryId": 2,
+      "price": 45000,
+      "stock": 70,
+      "rating": 4.8,
+      "reviews": 18,
+      "image": "images/9bd170dd844e17ab4804e1bdabe4c5a4-1200x675.jpg",
+      "description": "Kem matcha tươi mát, vị thanh dịu, hoàn hảo cho những ngày nắng nóng."
+    },
+    {
+      "id": "13",
+      "name": "Oatmilk Matcha Latte",
+      "categoryId": 1,
+      "price": 69000,
+      "stock": 55,
+      "rating": 4.7,
+      "reviews": 0,
+      "image": "images/9635f78d3364c38b8d197cdcb030fa7_large_6efe7ceb8f6744d49a9aa73e5e56f2b9_936d8af7df91447d961af7186ea3f424_master.jpg",
+      "description": "Oatmilk Matcha Latte thơm béo, sữa hạt mịn màng, vị matcha thanh dịu."
+    }
+  ],
+  "orders": [
+    {
+      "userId": "2",
+      "customerName": "Khách hàng",
+      "customerPhone": "0123456789",
+      "customerAddress": "abcxyz",
+      "paymentMethod": "BANK",
+      "status": "Đã hoàn thành",
+      "items": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Cold Whisk Matcha",
+            "categoryId": 1,
+            "price": 68000,
+            "stock": 50,
+            "image": "images/coldwhisk_c07d8c0d5a0c4392923e5db8a44582cc_7e203217fd1c4b8faf9ef7d411a3326f_large.png",
+            "description": "Cold Whisk Matcha mát lạnh, đậm vị tự nhiên."
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 68000,
+      "orderDate": "2026-05-31T19:04:59.178Z",
+      "id": "gaG_IocXt60"
+    },
+    {
+      "userId": "2",
+      "customerName": "Nguyễn Yến Nhi",
+      "customerPhone": "0123456789",
+      "customerAddress": "Hà Nội",
+      "paymentMethod": "COD",
+      "status": "Đã hoàn thành",
+      "items": [
+        {
+          "product": {
+            "id": "2",
+            "name": "Fog Matcha Latte",
+            "categoryId": 1,
+            "price": 69000,
+            "image": "images/fog_matcha_latte_e41446a847f841919badc807f4c4106b_83ed764223514a9e8c570db5abf31ed8_master.png",
+            "description": "Fog Matcha Latte thơm mịn, béo nhẹ, pha với sữa tươi."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "3",
+            "name": "Matcha Latte",
+            "categoryId": 1,
+            "price": 67000,
+            "image": "images/matchalatte_bba4231b93f84cc9870c1daf2e1a31e1_88d589c399074f139dc9c72fbcce6273_master.png",
+            "description": "Matcha Latte ấm áp, thơm mịn, nhẹ nhàng."
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 136000,
+      "orderDate": "2026-06-01T08:51:24.800Z",
+      "id": "8K8wH9qQxiU"
+    },
+    {
+      "userId": "2",
+      "customerName": "Thắng",
+      "customerPhone": "0123456783",
+      "customerAddress": "Đống Đa",
+      "paymentMethod": "BANK",
+      "status": "Đã hoàn thành",
+      "items": [
+        {
+          "product": {
+            "id": "7",
+            "name": "Bánh Mousse Matcha",
+            "categoryId": 3,
+            "price": 55000,
+            "image": "images/Banh-Mousse-1024x640.png",
+            "description": "Bánh mousse matcha mềm mượt, vị thanh dịu, sang trọng."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "5",
+            "name": "Salted Cream Matcha",
+            "categoryId": 1,
+            "price": 68000,
+            "image": "images/salted_4d6bc144258e4890885c142898e0736c_e0ee4f72eca14c6093b3ed7b341348b0_master.png",
+            "description": "Matcha pha cùng kem salted caramel, béo ngậy khó quên."
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 123000,
+      "orderDate": "2026-06-01T08:57:20.008Z",
+      "id": "D3OE0mpBsyk"
+    },
+    {
+      "userId": "2",
+      "customerName": "Hà",
+      "customerPhone": "0876543",
+      "customerAddress": "Thanh Xuân",
+      "paymentMethod": "BANK",
+      "status": "Đã hoàn thành",
+      "items": [
+        {
+          "product": {
+            "id": "fogmatcha",
+            "name": "Fog Matcha Latte",
+            "category": "Thức Uống",
+            "price": 69000,
+            "image": "images/fog_matcha_latte_e41446a847f841919badc807f4c4106b_83ed764223514a9e8c570db5abf31ed8_master.png",
+            "description": "Matcha Latte thơm mịn, béo nhẹ, pha cùng sữa tươi tách lớp hấp dẫn."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "banhmousse",
+            "name": "Bánh Mousse Matcha",
+            "category": "Bánh Ngọt",
+            "price": 55000,
+            "image": "images/Banh-Mousse-1024x640.png",
+            "description": "Bánh mousse mềm mượt, vị matcha thanh dịu và nền kem tan chảy."
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "tàu-hủ-matcha",
+            "name": "Tàu Hủ Matcha",
+            "category": "Tráng Miệng",
+            "price": 55000,
+            "image": "http://127.0.0.1:5500/images/tau_hu_073456509c324de881c8c7b7dc1756c4_9cc23f46054241ecb3a6ed6aa7a27729_master.png",
+            "description": ""
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "oatmilk-matcha-latte",
+            "name": "Oatmilk Matcha Latte",
+            "category": "Thức Uống",
+            "price": 69000,
+            "image": "http://127.0.0.1:5500/images/9635f78d3364c38b8d197cdcb030fa7_large_6efe7ceb8f6744d49a9aa73e5e56f2b9_936d8af7df91447d961af7186ea3f424_master.jpg",
+            "description": ""
+          },
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 248000,
+      "orderDate": "2026-06-01T10:22:29.989Z",
+      "id": "o7eLI-b-WbA"
+    }
+  ]
+}
